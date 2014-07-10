@@ -4,7 +4,8 @@
 	<meta charset="UTF-8">
 	<title>To Do</title>
 
-	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style/style.css">
 
 </head>
 <body>
@@ -28,7 +29,7 @@
 						</form>
 						
 						<form name="form-list" class="" role="form">
-						<ul>
+						<ul class="todo__list">
 							<li ng-repeat="todo in todoItems">
 								<span data-date-utc="{{todo.createdOn}}">{{todo.title}}</span>
 							</li>
