@@ -1,0 +1,22 @@
+{
+  "name": "angular-todo",
+  "version": "0.0.1",
+  "authors": [
+    "Andrew Ford <andrew@andrewford.co.nz>"
+  ],
+  "description": "An AngularJS To Do app",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.19",
+    "bootstrap": "~3.2.0"
+  },
+  "devDependencies": {
+  }
+}
