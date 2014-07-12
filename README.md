@@ -1,8 +1,5 @@
-#A simple AngularJS To Do app
+#A simple AngularJS To Do app using Firebase
 
 See the app in [action](http://andrewjamesford.github.io/AngularJS-ToDo/).
 
-## To Do
-* Add local storage
-* Tidy up listing of items added
-* Setup git hosted page
+This demo app uses [Firebase](https://www.firebase.com/) for data storage.
