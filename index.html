@@ -7,6 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/1.0.17/firebase.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
 </head>
 <body>
 	
@@ -20,20 +23,29 @@
 				<div class="row">
 					<div class="col-md-12" ng-controller="ToDoController">
 
-						<form name="form-add" class="form-inline" role="form"  ng-submit="addTodo()">
-						  <div class="form-group">
-						    <label class="sr-only" for="task-add">Task</label>
-						    <input type="text" ng-model="todo.title" class="form-control col-" id="todo-title" placeholder="Enter your task" autofocus>
-						  </div>
-						  <button type="submit" class="btn btn-default">Add</button>
+						<form name="form-add" class="form" role="form"  ng-submit="addTodo()">
+							<div class="form-group">
+								<label class="sr-only" for="task-add">Task</label>
+								<input type="text" ng-model="todo.title" class="form-control col-" id="todo-title" placeholder="Enter your task" autofocus>
+							</div>
+							<button type="submit" class="btn btn-default btn-block">Add</button>
 						</form>
 						
+						<h3>To Do Items</h3>
 						<form name="form-list" class="" role="form">
-						<ul class="todo__list">
-							<li ng-repeat="todo in todoItems">
-								<span data-date-utc="{{todo.createdOn}}">{{todo.title}}</span>
-							</li>
-						</ul>
+							<table class="table-striped todo-table">
+								<tr ng-repeat="(id, todo) in todoItems">
+									<td class="todo-table-item todo-table-item--check">
+										<input class="toggle" type="checkbox" ng-model="todo.completed" ng-change="todoItems.$save(id)">
+									</td>
+									<td class="todo-table-item todo-table-item--title">
+										<span data-date-utc="{{todo.createdOn}}">{{todo.title}}</span>
+									</td>
+									<td class="todo-table-item todo-table-item--button">
+										<button class="btn btn-danger" ng-click="deleteTodo(id)">Delete</button>
+									</td>
+								</tr>
+							</table>
 						</form>
 
 					</div>
@@ -49,7 +61,7 @@
 	</div>
 
 	
-	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	
 	<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

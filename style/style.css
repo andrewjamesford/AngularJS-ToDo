@@ -1,8 +1,24 @@
-.todo__list {
-	list-style: none;
-	padding-left: 0;
-	padding-top: 20px;
-}
+
 .container {
 	margin-top: 40px;
+}
+
+
+/*Table*/
+.todo-table {
+	width: 100%;
+}
+.todo-table-item {
+	padding: 5px;
+}
+
+.todo-table-item--check {
+	width: 5%;
+}
+.todo-table-item--title {
+	width: 70%;
+}
+.todo-table-item--button {
+	width: 25%;
+	text-align: right;
 }

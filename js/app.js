@@ -1,10 +1,13 @@
-(function () {
+
 	 
 
-	var app = angular.module('toDo', [])
-		.controller('ToDoController', function($scope){
+	var app = angular.module('toDo', ['firebase']);
+
+	app.controller('ToDoController', function($scope, $firebase){
 			
-			$scope.todoItems = [];
+			var ref = new Firebase("https://todo-app-demo.firebaseio.com/");
+
+			$scope.todoItems = $firebase(ref);
 
 			$scope.todo = '';
 
@@ -13,14 +16,17 @@
 				var newTodo = $scope.todo;
 
 				newTodo.createdOn = Date.now();
+				newTodo.completed = false;
 
-				$scope.todoItems.push(newTodo);
+				$scope.todoItems.$add(newTodo);
 
 				$scope.todo = {};
 			};
 
-		
+			$scope.deleteTodo = function(id) {
+
+				$scope.todoItems.$remove(id);
+			};
   	});
 
 
-})();
