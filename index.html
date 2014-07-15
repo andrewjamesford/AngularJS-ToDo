@@ -26,27 +26,26 @@
 						<form name="form-add" class="form" role="form"  ng-submit="addTodo()">
 							<div class="form-group">
 								<label class="sr-only" for="task-add">Task</label>
-								<input type="text" ng-model="todo.title" class="form-control col-" id="todo-title" placeholder="Enter your task" autofocus>
+								<input type="text" ng-model="todo.title" class="form-control" id="todo-title" placeholder="Enter your task" autofocus ng-required="true">
 							</div>
-							<button type="submit" class="btn btn-default btn-block">Add</button>
+							<button type="submit" class="btn btn-primary btn-block">Add</button>
 						</form>
 						
 						<h3>To Do Items</h3>
-						<form name="form-list" class="" role="form">
-							<table class="table-striped todo-table">
-								<tr ng-repeat="(id, todo) in todoItems">
-									<td class="todo-table-item todo-table-item--check">
-										<input class="toggle" type="checkbox" ng-model="todo.completed" ng-change="todoItems.$save(id)">
-									</td>
-									<td class="todo-table-item todo-table-item--title">
-										<span data-date-utc="{{todo.createdOn}}">{{todo.title}}</span>
-									</td>
-									<td class="todo-table-item todo-table-item--button">
-										<button class="btn btn-danger" ng-click="deleteTodo(id)">Delete</button>
-									</td>
-								</tr>
-							</table>
-						</form>
+
+						<table class="table-striped todo-table">
+							<tr ng-repeat="(id, todo) in todoItems">
+								<td class="todo-table-item todo-table-item--check">
+									<input class="toggle" type="checkbox" ng-model="todo.completed" ng-change="todoItems.$save(id)">
+								</td>
+								<td class="todo-table-item todo-table-item--title">
+									<span data-date="{{todo.createdOn | date:'shortDate'}}" data-time="{{todo.createdOn | date:'mediumTime'}}" ng-class="{striked: todo.completed}">{{todo.title}}</span>
+								</td>
+								<td class="todo-table-item todo-table-item--button">
+									<button class="btn btn-danger" ng-click="deleteTodo(id)">Delete</button>
+								</td>
+							</tr>
+						</table>
 
 					</div>
 				</div>

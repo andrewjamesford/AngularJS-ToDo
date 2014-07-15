@@ -22,3 +22,7 @@
 	width: 25%;
 	text-align: right;
 }
+
+.striked {
+	text-decoration: line-through;
+}

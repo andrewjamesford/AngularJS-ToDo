@@ -15,6 +15,10 @@
 
 				var newTodo = $scope.todo;
 
+				if (!newTodo.title.length) {
+					return;
+				}
+
 				newTodo.createdOn = Date.now();
 				newTodo.completed = false;
 
